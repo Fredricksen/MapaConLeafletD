@@ -19,27 +19,27 @@ let favoriteIcon = L.icon({
   iconSize: [36, 36]
 });
 
-/*let feedbackIcon = L.icon({
+let feedbackIcon = L.icon({
   iconUrl: 'icons/feedback.png',
   iconSize: [36, 36],
-  iconAnchor: [0, 36]
-});*/
+  iconAnchor: [0, 36]//punto de agranaje punta
+  });
 
-/*var redMarker = L.ExtraMarkers.icon({
+var redMarker = L.ExtraMarkers.icon({
   icon: 'fa-book',
-  markerColor: 'green',
+  markerColor: 'blue',
   shape: 'circle',
   prefix: 'fa'
-});*/
-/*
+});
+
 L.marker()
-  .setLatLng([20.547165, -104.045974])
+  .setLatLng([20.547165, -104.045974]) //COORDENADAS CON SETLATNG
   .setIcon(redMarker)
   .bindPopup('Estoy aqui')
-  .addTo(map);*/
-
+  .addTo(map);
+/*
  let marker = L.marker ([20.547165, -104.045974],{
-    icon: favoriteIcon
+    icon: feedbackIcon
   })
   .bindPopup('Me Encuentro HERE')
-  .addTo(map);
+  .addTo(map);*/
