@@ -1,16 +1,45 @@
-let map = L.map('map').setView([20.547165, -104.045974], 9);
+let map = L.map('map').setView([20.547165, -104.045974], 10);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+var Stamen_Watercolor = L.tileLayer(
+  'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}',
+  {
+    attribution:
+      'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    subdomains: 'abcd',
+    minZoom: 1,
+    maxZoom: 16,
+    ext: 'jpg'
+  }
+);
 
-let marker1 = L.marker([20.547165, -104.045974]).addTo(map);
-let marker2 = L.marker([19.547165, -104.045974])
-   .bindPopup('<h3>Titul0</h3>Hola -estoy aqui-') //agregar marxador con un popup 
-   .addTo(map)
-   .openPopup();
+Stamen_Watercolor.addTo(map);
 
-let popup = L.popup().setLatLng([20.847165, -104.145974]).setContent('Este es el popup'); //poup independiente
+let favoriteIcon = L.icon({
+  iconUrl: 'icons/favorite.png',
+  iconSize: [36, 36]
+});
 
-marker1.bindPopup(popup).openPopup(); //AGREGAR (asignar) POPUP AL MARKADOR
+/*let feedbackIcon = L.icon({
+  iconUrl: 'icons/feedback.png',
+  iconSize: [36, 36],
+  iconAnchor: [0, 36]
+});*/
+
+/*var redMarker = L.ExtraMarkers.icon({
+  icon: 'fa-book',
+  markerColor: 'green',
+  shape: 'circle',
+  prefix: 'fa'
+});*/
+/*
+L.marker()
+  .setLatLng([20.547165, -104.045974])
+  .setIcon(redMarker)
+  .bindPopup('Estoy aqui')
+  .addTo(map);*/
+
+ let marker = L.marker ([20.547165, -104.045974],{
+    icon: favoriteIcon
+  })
+  .bindPopup('Me Encuentro HERE')
+  .addTo(map);
